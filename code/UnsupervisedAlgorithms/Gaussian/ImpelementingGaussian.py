@@ -31,7 +31,7 @@ plt.ylabel('Throughput (mb/s)')
 plt.xlabel('Latency (ms)')
 # Set axis range
 plt.axis([0, 30, 0, 30])
-plt.show()
+# plt.show()
 
 # UNQ_C1
 # GRADED FUNCTION: estimate_gaussian
@@ -62,6 +62,9 @@ def estimate_gaussian(X):
 
 mu, var = estimate_gaussian(X_train)
 
+print("Size of each mean :", mu.shape)
+print("Size of each variance:",  var.shape)
+
 print("Mean of each feature:", mu)
 print("Variance of each feature:",  var)
     
@@ -88,13 +91,57 @@ def select_threshold(y_val, p_val):
 
     ### START CODE HERE ###
     for epsilon in np.arange(min(p_val), max(p_val), step_size):
+        print("epsilon", epsilon)
+       
+        predictions1 = (p_val < epsilon)
+        print("first 10 elements of predictions1", predictions1[:10])
         predictions = (p_val < epsilon)[:, np.newaxis]
-        tp = np.sum(predictions[y_val == 1] == 1)
-        fp = np.sum(predictions[y_val == 0] == 1)
-        fn = np.sum(predictions[y_val == 1] == 0)
+        print("prediction shape", predictions.shape)
+        print("first 10 elements of predictions", predictions[:10])
+        print("boolean shape", (predictions[y_val == 1] == 1 ).shape)
+        print("boolean", predictions[y_val == 1] == 1)
+      
+        tp0 = np.sum(predictions[y_val == 1] == 1)
+        fp0 = np.sum(predictions[y_val == 0] == 1)
+        fn0 = np.sum(predictions[y_val == 1] == 0)
+
+        print("tp0", tp0)
+        print("fp0", fp0)
+        print("fn0", fn0)
+
+
+        """ The below code is identical to the one above , but it doesn not seem to work , need to check later why - the check.py has the same functions, and seem to work fine 
+
+        tp2 = np.sum((predictions == 1) & (y_val == 1).astype(np.int32))
+        fp2 = np.sum((predictions == 1) & (y_val == 0).astype(np.int32))
+        fn2 = np.sum((predictions == 0) & (y_val == 1).astype(np.int32))
+
+
+        print("tp2", tp2)
+        print("fp2", fp2)
+        print("fn2", fn2) """
+
+        tp = np.sum((predictions == 1) & (y_val == 1))
+        fp = np.sum((predictions == 1) & (y_val == 0))
+        fn = np.sum((predictions == 0) & (y_val == 1))
+
+        print("tp", tp)
+        print("fp", fp)
+        print("fn", fn)
+
         prec = tp / (tp + fp)
         rec = tp / (tp + fn)
         F1 = (2 * prec * rec) / (prec + rec)
         if F1 > best_F1:
             best_F1 = F1
             best_epsilon = epsilon
+    ### END CODE HERE ###
+
+    return best_epsilon, best_F1
+
+p_val = multivariate_gaussian(X_val, mu, var)
+print("first 5 elements of p_val", p_val[:5])
+print("size of p_val", p_val.shape)
+print("first 5 elements of y_val", y_val[:5])
+print("first 5 elements of y_val", y_val[:5])
+epsilon, F1 = select_threshold(y_val, p_val) 
