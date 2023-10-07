@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 def my_dense(a_in, W, b):
     """
@@ -15,8 +16,13 @@ def my_dense(a_in, W, b):
     for j in range(units):               
         w = W[:,j]                                    
         z = np.dot(w, a_in) + b[j]         
-        a_out[j] = g(z)               
+        a_out[j] = sigmoid(z)               
     return(a_out)
+
+
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
 
 # 3 features
 a_in = np.array([[1, 2], [3, 4]])
