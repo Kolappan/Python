@@ -7,6 +7,8 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split
 import tabulate
 from recsysNN_utils import *
+from IPython.display import display, HTML
+
 pd.set_option("display.precision", 1)
 
 top10_df = pd.read_csv("UnsupervisedAlgorithms/ContentBasedFiltering/data/content_top10_df.csv")
@@ -57,7 +59,11 @@ y_train, y_test       = train_test_split(y_train,    train_size=0.80, shuffle=Tr
 print(f"movie/item training data shape: {item_train.shape}")
 print(f"movie/item test data shape: {item_test.shape}")
 
-pprint_train(user_train, user_features, uvs, u_s, maxcount=5)
+table_html = pprint_train(user_train, user_features, uvs, u_s, maxcount=5)
+print(table_html)
+
+
+
 
 # ---------------------------------------------------------------------------
 # Neural Network Model for content based filtering
@@ -110,7 +116,7 @@ model.compile(optimizer=opt,
               loss=cost_fn)
 
 tf.random.set_seed(1)
-model.fit([user_train[:, u_s:], item_train[:, i_s:]], y_train, epochs=30)
+model.fit([user_train[:, u_s:], item_train[:, i_s:]], y_train, epochs=10)
 
 model.evaluate([user_test[:, u_s:], item_test[:, i_s:]], y_test)
 
