@@ -40,9 +40,11 @@ def propagate(w, b, X, Y):
     Tips:
     - Write your code step by step for the propagation. np.log(), np.dot()
     """
+
+    print("in propagate")
     
     m = X.shape[1]
-    print("m", m)
+    
     # FORWARD PROPAGATION (FROM X TO COST)
     #(≈ 2 lines of code)
     # compute activation
@@ -51,6 +53,8 @@ def propagate(w, b, X, Y):
     # And don't use loops for the sum.
     # cost = ...                                
     # YOUR CODE STARTS HERE
+    print("X", X)
+    print("w", w)
     print("X", X.shape)
     print("w", w.shape)
     z = np.dot(w.T,X)+ b
@@ -85,7 +89,7 @@ def propagate(w, b, X, Y):
     
     return grads, cost
 
-w =  np.array([[1.], [2]])
+""" w =  np.array([[1.], [2]])
 b = 1.5
 X = np.array([[1., -2., -1.], [3., 0.5, -3.2]])
 Y = np.array([[1, 1, 0]])
@@ -100,4 +104,4 @@ print ("dw = " + str(grads["dw"]))
 print ("db = " + str(grads["db"]))
 print ("cost = " + str(cost))
 
-public_tests.propagate_test(propagate)
+# public_tests.propagate_test(propagate)"""

@@ -2,6 +2,7 @@ import public_tests
 import initialise
 import optimise
 import predict
+import propogate
 import numpy as np
 
 def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0.5, print_cost=False):
@@ -25,6 +26,7 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0
     # and use the "shape" function to get the first dimension of X_train
     # w, b = ...
     dim = X_train.shape[1]
+    print("in model")
     print("dim", dim)
     print("shape of X train", X_train.shape)
     w,b = initialise.initialize_with_zeros(dim)
@@ -69,4 +71,3 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0
     
     return d
 
-public_tests.model_test(model)

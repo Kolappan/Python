@@ -35,6 +35,8 @@ def optimise(w, b, X, Y, num_iterations=100, learning_rate=0.009, print_cost=Fal
     b = copy.deepcopy(b)
     
     costs = []
+
+    print("in optimise")
     
     for i in range(num_iterations):
         # (≈ 1 lines of code)
@@ -89,4 +91,4 @@ print ("dw = " + str(grads["dw"]))
 print ("db = " + str(grads["db"]))
 print("Costs = " + str(costs))
 
-public_tests.optimize_test(optimise)
+# public_tests.optimize_test(optimise)

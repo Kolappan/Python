@@ -121,6 +121,9 @@ def model_test(target):
     # Use 3 samples for testing
     x_test = np.random.randn(4, 3)
     y_test = np.array([[0, 1, 0]])
+    w = expected_output['w']
+    print("w", w)
+    print("w shape", w.shape)
 
     d = target(X, Y, x_test, y_test, num_iterations=50, learning_rate=0.01)
     
