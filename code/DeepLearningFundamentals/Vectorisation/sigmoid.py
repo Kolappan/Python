@@ -23,4 +23,4 @@ def sigmoid(x):
     
     return s
 
-print("np_sigmoid(1) = " + str(sigmoid(1)))
+

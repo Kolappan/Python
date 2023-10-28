@@ -17,8 +17,9 @@ def predict(w, b, X):
     
     m = X.shape[1]
     Y_prediction = np.zeros((1, m))
-    w = w.reshape(X.shape[0], 1)
+    # w = w.reshape(X.shape[0], 1)
     print("in predict")
+    print("w shape", w.shape)
     
     # Compute vector "A" predicting the probabilities of a cat being present in the picture
     #(≈ 1 line of code)
@@ -48,8 +49,8 @@ def predict(w, b, X):
     
     return Y_prediction
 
-w = np.array([[0.1124579], [0.23106775]])
+"""w = np.array([[0.1124579], [0.23106775]])
 b = -0.3
 X = np.array([[1., -1.1, -3.2],[1.2, 2., 0.1]])
 print ("predictions = " + str(predict(w, b, X)))
-# public_tests.predict_test(predict)
+# public_tests.predict_test(predict)"""

@@ -44,6 +44,8 @@ def propagate(w, b, X, Y):
     print("in propagate")
     
     m = X.shape[1]
+
+    print("m", m)
     
     # FORWARD PROPAGATION (FROM X TO COST)
     #(≈ 2 lines of code)
@@ -54,9 +56,9 @@ def propagate(w, b, X, Y):
     # cost = ...                                
     # YOUR CODE STARTS HERE
     print("X", X)
-    print("w", w)
-    print("X", X.shape)
-    print("w", w.shape)
+    print("w", w)   
+    print("X shape", X.shape)
+    print("w shape", w.shape)
     z = np.dot(w.T,X)+ b
     A = sigmoid(z)
     # c =  np.sum( np.dot(Y,np.log(A)) , np.dot((1-Y), np.log(1-A)))

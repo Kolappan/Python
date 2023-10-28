@@ -78,7 +78,7 @@ def optimise(w, b, X, Y, num_iterations=100, learning_rate=0.009, print_cost=Fal
     
     return params, grads, costs
 
-w =  np.array([[1.], [2]])
+""" w =  np.array([[1.], [2]])
 b = 1.5
 X = np.array([[1., -2., -1.], [3., 0.5, -3.2]])
 Y = np.array([[1, 1, 0]])
@@ -91,4 +91,4 @@ print ("dw = " + str(grads["dw"]))
 print ("db = " + str(grads["db"]))
 print("Costs = " + str(costs))
 
-# public_tests.optimize_test(optimise)
+# public_tests.optimize_test(optimise)"""
