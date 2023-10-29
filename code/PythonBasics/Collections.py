@@ -56,7 +56,7 @@ even_num_to_square = {x: x ** 2 for x in nums if x % 2 == 0}
 print(even_num_to_square)  # Prints "{0: 0, 2: 4, 4: 16}"
 
 animals =  d['cat']
-print(animals)
+print(animals)  # Prints "cute"
 
 # Sets
 # A set is an unordered collection of distinct elements.
@@ -91,5 +91,6 @@ t = (5)        # Create a tuple
 print(type(t))    # Prints "<class 'tuple'>"
 print(e[t])       # Prints "5, 6"
 print(e[(1)])  # Prints "1, 2"
+
 
 
