@@ -1,4 +1,5 @@
 # GRADED FUNCTION: linear_backward
+import numpy as np
 
 def linear_backward(dZ, cache):
     """

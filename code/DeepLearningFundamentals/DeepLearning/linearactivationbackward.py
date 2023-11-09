@@ -1,3 +1,5 @@
+import dnn_utils as dnnu
+import linearbackward
 
 def linear_activation_backward(dA, cache, activation):
     """
@@ -21,7 +23,7 @@ def linear_activation_backward(dA, cache, activation):
         # dA_prev, dW, db =  ...
         # YOUR CODE STARTS HERE
         dZ = dnnu.relu_backward(dA, activation_cache)
-        dA_prev, dW, db = linearbackward (dZ, linear_cache)
+        dA_prev, dW, db = linearbackward(dZ, linear_cache)
 
         # YOUR CODE ENDS HERE
         
@@ -31,7 +33,7 @@ def linear_activation_backward(dA, cache, activation):
         # dA_prev, dW, db =  ...
         # YOUR CODE STARTS HERE
         dZ = dnnu.sigmoid_backward(dA, activation_cache)
-        dA_prev, dW, db = linearbackward (dZ, linear_cache)
+        dA_prev, dW, db = linearbackward(dZ, linear_cache)
         # YOUR CODE ENDS HERE
     
     return dA_prev, dW, db
