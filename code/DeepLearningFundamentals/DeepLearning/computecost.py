@@ -1,3 +1,5 @@
+import numpy as np
+
 def compute_cost(AL, Y):
     """
     Implement the cost function defined by equation (7).

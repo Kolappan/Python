@@ -1,5 +1,6 @@
 # GRADED FUNCTION: L_model_backward
 import linearactivationbackward
+import numpy as np
 
 def L_model_backward(AL, Y, caches):
     """

@@ -1,3 +1,4 @@
+import linearactivationforward 
 def L_model_forward(X, parameters):
     """
     Implement forward propagation for the [LINEAR->RELU]*(L-1)->LINEAR->SIGMOID computation
@@ -24,7 +25,7 @@ def L_model_forward(X, parameters):
         # A, cache = ...
         # caches ...
         # YOUR CODE STARTS HERE
-        A, cache = linear_activation_forward(A_prev, parameters['W' + str(l)], parameters['b' + str(l)], activation = "relu")
+        A, cache = linearactivationforward(A_prev, parameters['W' + str(l)], parameters['b' + str(l)], activation = "relu")
         caches.append(cache)
         
         # YOUR CODE ENDS HERE
@@ -34,7 +35,7 @@ def L_model_forward(X, parameters):
     # AL, cache = ...
     # caches ...
     # YOUR CODE STARTS HERE
-    AL, cache = linear_activation_forward(A, parameters['W' + str(L)], parameters['b' + str(L)], activation = "sigmoid")
+    AL, cache = linearactivationforward(A, parameters['W' + str(L)], parameters['b' + str(L)], activation = "sigmoid")
     caches.append(cache)
     
     # YOUR CODE ENDS HERE
