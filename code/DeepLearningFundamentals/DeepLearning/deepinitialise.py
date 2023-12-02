@@ -1,4 +1,6 @@
 import numpy as np 
+import tensorflow as tf
+
 
 def initialize_parameters_deep(layer_dims):
     """
@@ -30,3 +32,5 @@ def initialize_parameters_deep(layer_dims):
 
         
     return parameters
+
+print (tf.__version__)
