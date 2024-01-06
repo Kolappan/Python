@@ -1,3 +1,6 @@
+import string
+import numpy as np
+
 # List
 
 xs = [3, 1, 2]    # Create a list
@@ -24,9 +27,11 @@ print(nums)               # Prints "[0, 1, 8, 9, 4]"
 print("-------------------------------------")
 
 # List Comprehension
-nums = [0, 1, 2, 3, 4]
+print("List Comprehension")
+nums = [0, 1, 2, 9, 10]
 squares = [x ** 2 for x in nums]
 print(squares)   # Prints [0, 1, 4, 9, 16]
+print("list value", nums[3])
 
 # List Comprehension with conditions
 nums = [0, 1, 2, 3, 4]
@@ -92,5 +97,69 @@ print(type(t))    # Prints "<class 'tuple'>"
 print(e[t])       # Prints "5, 6"
 print(e[(1)])  # Prints "1, 2"
 
+# Create a dictionary of arrays (lists)
+sample_dict = {
+    "fruits": ["apple", "banana", "cherry"],
+    "vegetables": ["carrot", "potato", "cucumber"],
+    "numbers": [1, 2, 3, 4, 5]
+}
 
 
+fruits, vegetables, numbers = sample_dict['fruits'], sample_dict['vegetables'], sample_dict['numbers']
+
+for gradient in [fruits, vegetables, numbers]:
+    
+    print("gradient", gradient)
+        
+    ### END CODE HERE ###
+    
+
+
+# Create a list of all alphabets - 2D Array
+
+
+# Create a list of all alphabets
+alphabets = list(string.ascii_lowercase)
+
+# Creating a 2D array with each alphabet in its own row
+alphabet_2d_array = [[letter] for letter in alphabets]
+
+print("2D Array", alphabet_2d_array)
+
+# Matrix multipliecation
+
+matrix1 = np.array([[1,1],[2,2],[3,3]]) # (3,2)
+matrix2 = np.array([[0],[0],[0]]) # (3,1) 
+vector1D = np.array([1,1]) # (2,) 
+print("vector1D (2,) shape \n", vector1D.size, "\n")
+vector2D = np.array([[1],[1]]) # (2,1)
+
+print("matrix1 (3,2) \n", matrix1,"\n")
+print("matrix2 (3,1)\n", matrix2,"\n")
+print("vector1D (2,)\n", vector1D,"\n")
+print("vector2D (2,1)\n", vector2D)
+
+print("Multiply 2D  matrix and 1D vectors: result is a 2D array\n", 
+      np.dot(matrix1,vector1D))
+
+print("Multiply 2D and 1D arrays: result is a 1D array\n", 
+      np.dot(matrix1,vector1D))
+print("Multiply 2D and 2D arrays: result is a 2D array\n", 
+      np.dot(matrix1,vector2D))
+print("Adding (3 x 1) vector to a (3 x 1) vector is a (3 x 1) vector\n",
+      "This is what we want here!\n", 
+      np.dot(matrix1,vector2D) + matrix2)
+print("Adding a (3,) vector to a (3 x 1) vector\n",
+      "broadcasts the 1D array across the second dimension\n",
+      "Not what we want here!\n",
+      np.dot(matrix1,vector1D) + matrix2
+     )
+
+np.random.seed(0)
+probs = np.array([0.3, 0.2, 0.4, 0.1])
+print("probs", probs)
+print("probs length", len(probs))
+print("range", range(len(probs)))
+
+idx = np.random.choice([5,6,7,8], p = probs)
+print("idx", idx)
