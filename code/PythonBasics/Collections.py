@@ -1,3 +1,4 @@
+
 import string
 import numpy as np
 
@@ -53,6 +54,17 @@ print(d.get('fish', 'N/A'))    # Get an element with a default; prints "wet"
 print(d)
 del d['fish']         # Remove an element from a dictionary
 print(d.get('fish', 'N/A')) # "fish" is no longer a key; prints "N/A"
+
+
+count = 0
+for key, value in d.items():
+    if count < 3:
+        print("Dict values " f"{key}: {value}")
+        count += 1
+    else:
+        break
+
+
 
 # Dictonary Comprehension
 
@@ -113,7 +125,7 @@ for gradient in [fruits, vegetables, numbers]:
         
     ### END CODE HERE ###
     
-
+# -------------------------- 
 
 # Create a list of all alphabets - 2D Array
 
@@ -163,3 +175,30 @@ print("range", range(len(probs)))
 
 idx = np.random.choice([5,6,7,8], p = probs)
 print("idx", idx)
+
+names = ("man", "woman")
+print("first name", names[0])
+
+# ---------------
+# numpy array
+
+input_sentence = [ 
+    'never talk to me again', 'I am proud of your achievements',
+ 'It is the best day in my life' , 'Miss you so much', 'food is life',
+ 'I love you mum', 'Stop saying bullshit',
+ 'congratulations on your acceptance', 'The assignment is too long '
+]
+
+sentence_array = np.array(input_sentence)
+print(" first sentence", sentence_array[0])
+print("first sentence length - no of characters", len(sentence_array[0]))
+print("words in the first sentence", sentence_array[0].split()) 
+print("no words in the first sentence", len(sentence_array[0].split()))
+
+# you can give Python a function- Lambda to determine the maximum value in a list
+print("max as per characters: " , max(sentence_array, key=lambda x: len(x)))
+print("max sentence as per words: ", max(sentence_array, key=lambda x: len(x.split())))
+
+maxLen = len(max(sentence_array, key=lambda x: len(x.split())).split())
+
+print("maxLen: ", maxLen)
